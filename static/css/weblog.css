@@ -7,7 +7,7 @@ body {
 }
 
 a[href] {
-	color: #476286;
+	color: #0770fb;
 	text-decoration: none;
 }
 
@@ -38,6 +38,14 @@ blockquote p:last-child {
   font-style: normal;
   padding-left: 30px;
 
+}
+
+article p code {
+  color: #EB5757;
+}
+
+li code {
+  color: #EB5757;
 }
 
 .site {
