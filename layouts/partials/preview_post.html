@@ -6,11 +6,11 @@
   {{ end }}
 
   <div class="postmeta">Posted on <time datetime="{{ .Date }}" pubdate="">{{ .Date.Format "January 2, 2006" }}</time>
-    {{ if (isset .Params "categories") }}
+    {{ if (isset .Params "tags") }}
        in
       <span class="categories">
-        {{ range $i, $v := .Params.categories }}
-          <a class="category" href="/categories/{{ $v | urlize }}">{{ $v }}</a>{{ if ne (len $.Params.categories) (add $i 1) }}, {{ end }}
+        {{ range $i, $v := .Params.tags }}
+          <a class="category" href="/tags/{{ $v | urlize }}">{{ $v }}</a>{{ if ne (len $.Params.tags) (add $i 1) }}, {{ end }}
         {{ end }}
       </span>
     {{ end }}
@@ -18,7 +18,7 @@
 
   <p>
     {{ if (not (isset .Params "externalurl")) }}
-      {{ .Summary }}
+      {{ .Summary | safeHTML }}
     {{ else }}
       {{ .Content }}
     {{ end }}
