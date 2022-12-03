@@ -1,14 +1,22 @@
+@import "vars.css";
 
 /* Page */
+html {
+  background-color: var(--color-bg);
+}
 
 body {
+  background-color: var(--color-bg);
   font: 16px/24px "Avenir Next", "Helvetica Neue", Arial, Helvetica, sans-serif;
   line-height: 24px;
 }
 
+a {
+  color: var(--color-link);
+}
+
 a[href] {
-	color: #0770fb;
-	text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
@@ -16,7 +24,7 @@ a:hover {
 }
 
 h1, h2, h3, h4 {
-  color: #666666;
+  color: var(--accent);
 }
 
 img {
@@ -40,10 +48,9 @@ blockquote p:last-child {
 
 }
 
-article p code {
+article p code, article pre code {
   color: #c7254e;
   padding:3px 7px;
-  background:#f0f2f5;
   border-radius:4px;
 }
 
@@ -79,7 +86,6 @@ header h1 {
   margin: 0 auto;
   padding: 10px 10px 0 10px;
   max-width: 720px;
-  color: #5B636E;
 }
 
 article > ul > li {
@@ -127,6 +133,16 @@ nav ul > li {
 
 /* Articles */
 
+article {
+  overflow: hidden;
+  word-wrap: break-word;
+  background-color: var(--item-bg);
+  box-shadow: var(--shadow-shape) var(--color-shadow);
+  padding: var(--content-padding);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--accent);
+}
+
 article.micropost {
   margin: 8px auto;
 }
@@ -134,9 +150,9 @@ article.micropost {
 .micropost {
   background-color: #f8f8f8;
   margin: 40px auto;
-  padding: 20px;
+  padding: var(--content-padding);
   max-width: 780px;
-  border-radius: 14px;
+  border-radius: var(--border-radius);
 }
 
 .post, .page, .post-groups {
@@ -153,7 +169,7 @@ article.micropost {
 }
 
 .post > p, .page > p {
-  color: #666666;
+  color: var(--color-primary);
   font-size: 18px;
   line-height: 28px;
   margin: 20px auto;
@@ -171,7 +187,7 @@ article.micropost {
 }
 
 .micropost p > a, .post p > a {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 .post h2 {
@@ -227,10 +243,10 @@ article.photo img:hover {
 }
 
 article .postmeta {
-	line-height: 22px;
-	color: #999999;
+  line-height: 22px;
+  color: #999999;
   margin: 0 auto;
-	padding: 5px 0 0 0;
+  padding: 5px 0 0 0;
 }
 
 .post-group {
@@ -245,10 +261,6 @@ article .postmeta {
   margin: 5px;
   font-size: 10pt;
   color: #999999;
-}
-
-.post-group-item:hover {
-  background-color: #f6f6f6;
 }
 
 .post-group-item h3 {
