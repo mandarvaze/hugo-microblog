@@ -94,6 +94,11 @@ article > ul > li {
   color: var(--color-primary);
 }
 
+.footnotes {
+  font-size: 15px;
+  color: var(--color-primary);
+}
+
 /* Navigation */
 
 nav {
