@@ -164,6 +164,7 @@ article.micropost {
 .post, .page, .post-groups {
   margin: 40px auto;
   max-width: 780px;
+  color: var(--color-primary);
 }
 
 .micropost > p {
