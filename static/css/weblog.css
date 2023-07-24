@@ -49,17 +49,16 @@ blockquote p:last-child {
 
 }
 
-article p code, article pre code {
+article p code, li code {
   color: #c7254e;
   padding:3px 7px;
   background:#f0f2f5;
   border-radius:4px;
 }
 
-li code {
+article pre code {
   color: #c7254e;
   padding:3px 7px;
-  background:#f0f2f5;
   border-radius:4px;
 }
 
