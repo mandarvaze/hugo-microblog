@@ -59,8 +59,7 @@ for Hugo.
 There are a few concepts this theme employs to make a personal blog. It's
 important to read this as you may not see what you expect upon launching. Since
 this theme is built to be a personal blog it opts for some simplifications like
-using the ["Section Menu for the Lazy Blogger"](https://gohugo.io/extras/menus/
-#section-menu-for-the-lazy-blogger) option in Hugo for displaying a simple menu.
+using the ["Section Menu for the Lazy Blogger"](https://gohugo.io/extras/menus/#section-menu-for-the-lazy-blogger) option in Hugo for displaying a simple menu.
 It assumes you want to call your blog posts `posts` and organizes them as such.
 For example, creating a new post (or micropost) with Hugo would
 require you typing:
@@ -262,14 +261,16 @@ This theme makes use of the following 3rd Party Libraries.
 
 ## License
 
-This theme is released under MIT. For more information, please see the [License](http://jnjosh.mit-license.org).
+This theme is released under MIT. For more information, please see the [License](https://github.com/mandarvaze/hugo-microblog/blob/main/LICENSE.md)
 
 ## Contact
 
-This is the first theme I've made for Hugo, so I'm sure I've done some things wrong or assumed too much. If you have ideas or things that should be fixed, please let me know.
+If you have any feedback about this theme, open an issue.
 
-- [Josh Johnson](http://jnjosh.com) [@jnjosh](http://twitter.com/jnjosh)
+Check the footer of my [microblog](https://microblog.desipenguin.com/) to contact me.
 
 ---
 
 _Thanks to Steve Francia for creating Hugo!_
+
+_Thanks Josh Johnson for the original theme_
