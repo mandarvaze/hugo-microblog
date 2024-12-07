@@ -1,12 +1,25 @@
-# internet-weblog Theme for Hugo
+# hugo-microblog Theme for Hugo
 
-`internet-weblog` is a minimalistic (and a bit responsive) Hugo theme that offers a traditional blog mixed with a microblog and a photoblog. It also offers the ability to do simple link posts that link to a remote page. It was ported from a theme made for Octopress.
 
-The theme features a customizable bio-section and flickr-based photo stream in it's footer, unique layouts for displaying all posts sorted by year, and support for partials to customize style and javascript loaded.
 
-To see more, [check out my blog which is rendered with this theme](http://jnjosh.com) and see it's [configuration on Github](https://github.com/jnjosh/jnjosh.com).
+`hugo-microblog` is a minimalistic (and a bit responsive) Hugo theme that offers
+a traditional blog mixed with a microblog. It also offers the ability to do
+simple link posts that link to a remote page. This theme is forked from
+[internet-weblog](https://github.com/jnjosh/internet-weblog) theme for Hugo
 
-![internet-weblog showing a Micropost.](https://github.com/jnjosh/internet-weblog/blob/master/images/screenshot.png)
+This README is modified as appropriate for this theme. But some part still
+points to the README of the original theme.
+
+The theme features a customizable bio-section and flickr-based photo stream in
+it's footer, unique layouts for displaying all posts sorted by year, and support
+for partials to customize style and javascript loaded.
+
+To see more, 
+[check out my blog which is rendered with this theme](https://microblog.desipenguin.com)
+and see it's 
+[configuration on Gitlab](https://gitlab.com/mandarvaze/microblog/-/blob/master/config.toml)
+
+![internet-weblog showing a Micropost.](https://github.com/jnjosh/internet-weblog/blob/main/images/screenshot.png)
 
 ## Contents
 
@@ -27,37 +40,58 @@ To see more, [check out my blog which is rendered with this theme](http://jnjosh
 
 ## Installation
 
-Inside the folder of your Hugo site run:
+Add following to your YAML configuration
 
-    $ mkdir themes
-    $ cd themes
-    $ git clone https://github.com/jnjosh/internet-weblog.git
+```
+[[module.imports]]
+   path = "github.com/mandarvaze/hugo-microblog"
+```
 
-For more information read the official [setup guide](//gohugo.io/overview/installing/) for Hugo.
+For more information (and example config in other formats like TOML) read the 
+official 
+[documentation](https://gohugo.io/hugo-modules/use-modules/#use-a-module-for-a-theme) 
+for Hugo.
 
 ## Getting Started
 
-There are a few concepts this theme employs to make a personal blog. It's important to read this as you may not see what you expect upon launching. Since this theme is built to be a personal blog it opts for some simplifications like using the ["Section Menu for the Lazy Blogger"](https://gohugo.io/extras/menus/#section-menu-for-the-lazy-blogger) option in Hugo for displaying a simple menu. It assumes you want to call your blog posts `posts` and organizes them as such. For example, creating a new post (or micropost, or photopost) with Hugo would require you typing:
+(This section remains unchanged from the original theme)
+
+There are a few concepts this theme employs to make a personal blog. It's
+important to read this as you may not see what you expect upon launching. Since
+this theme is built to be a personal blog it opts for some simplifications like
+using the ["Section Menu for the Lazy Blogger"](https://gohugo.io/extras/menus/
+#section-menu-for-the-lazy-blogger) option in Hugo for displaying a simple menu.
+It assumes you want to call your blog posts `posts` and organizes them as such.
+For example, creating a new post (or micropost) with Hugo would
+require you typing:
 
 ```
-  $ hugo new posts/my-new-post.md
+  $ hugo new post/my-new-post.md
 
   $ hugo new microposts/quick-thought.md
-
-  $ hugo new photos/my-nyc-vacation.md
 ```
 
-It also assumes you want to display links to your sections of content (`posts`, `microposts`, `photos`) and display links to other pages in the menu and requires some setup on your part. This guide will take you through the steps to configure your blog to use the theme.
+It also assumes you want to display links to your sections of content (`posts`,
+`microposts`) and display links to other pages in the menu and
+requires some setup on your part. This guide will take you through the steps to
+configure your blog to use the theme.
 
 ### Configuring your Blog
 
 #### Where should blog post markdown files be stored?
 
-The theme works with other content types, but posts work best when grouped under `posts`. When using the `posts` (_note that it is plural_) content type you'll have a customized list page sorted by year and the default list page. Here's an example:
+Normal blog posts should be under `post` (_note that it is not a plural_) 
+You'll have a customized list page sorted by year and the default list page. 
+Here's an [example](https://microblog.desipenguin.com/post/)
 
-![Custom List Page sorted by Year](https://github.com/jnjosh/internet-weblog/raw/master/images/posts.png)
 
-**Recommendation:** Organize your blog posts under the `posts` directory.
+While Microposts can have a title, it is not use and thus they are listed in
+entirety (paginated) Here is an [example](https://microblog.desipenguin.com/
+microposts/)
+
+If `SummarizeMicroposts` is set to `true`, `title` is used (if present) and 
+full text is NOT shown (unless text is short). Summary ends with 
+`Continue Reading` link
 
 #### How to configure the menu in the blog's navigation
 
@@ -82,11 +116,11 @@ You can then control the name and weight of these menus in your `config.toml` by
 [[menu.main]]
    name = "Posts"
    weight = 1
-   identifier = "posts"
-   url = "/posts/"
+   identifier = "post"
+   url = "/post/"
 ```
 
-If you aren't sure of how this should look, see how [jnjosh.com uses this in it's config.toml](https://github.com/jnjosh/jnjosh.com/blob/master/config.toml).
+If you aren't sure of how this should look, see how [jnjosh.com uses this in it's config.toml](https://github.com/jnjosh/jnjosh.com/blob/main/config.toml).
 
 **Recommendation:** Add `SectionPagesMenu` to your `config.toml` file.
 **Recommendation:** Don't set a `menu` in your post's Front Matter unless you want it to display on the navigation.
@@ -97,17 +131,19 @@ If you aren't sure of how this should look, see how [jnjosh.com uses this in it'
 
 It looks like most themes use the `author` variable to add something simple like your name. This theme uses more structured data about you and requires an `[author]` section. The details of what is affected by each property is defined below in the variables section, but you should add this section to your `config.toml`:
 
+Add the following under `[params]` section of your config file
 ```
-[author]
-   Handle = "<Your `handle`>"
-   FirstName = "<Your First Name>"
-   LastName = "<Your Last Name>"
-   AboutPage = "<The relative or complete link to your about page>"
-   Location = "<Your Location>"
-   FlickrID = "<Your Flickr ID>"
+   [params.author]
+      Handle = "<Your `handle`>"
+      FirstName = "<Your First Name>"
+      LastName = "<Your Last Name>"
+      AboutPage = "<The relative or complete link to your about page>"
+      Location = "<Your Location>"
+      FlickrID = "<Your Flickr ID>"
 ```
 
-**Recommendation:** Don't use the `author` variable, use the above `[author]` section in your `config.toml`.
+**Recommendation:** Don't use the `author` variable, use the above
+`[params.author]` section in your `config.toml`.
 
 #### Customizing the Bio Section, 404 page, javascript, or stylesheets
 
@@ -119,7 +155,11 @@ More details about each of these overrides are below in the [overrides](#overrid
 
 #### Creating a Link Post
 
-Sometimes you want a post that just links to another website. This can be done by including the `externalurl` parameter on your individual post. A link post is just a normal post under `posts` that has this special parameter. For example, on a post talking about some kickstarter project, you can add this to your individual post's Front Matter:
+Sometimes you want a post that just links to another website. This can be done
+by including the `externalurl` parameter on your individual post. A link post is
+just a normal post under `post` that has this special parameter. For example,
+on a post talking about some kickstarter project, you can add this to your
+individual post's Front Matter:
 
 ```
 externalurl = "http://kickstarter.com"
@@ -127,25 +167,24 @@ externalurl = "http://kickstarter.com"
 
 These posts are rendered slightly different with an → to signify that it is remote.
 
-![External URL](https://github.com/jnjosh/internet-weblog/raw/master/images/linkpost.png)
+![External URL](https://github.com/jnjosh/internet-weblog/raw/main/images/linkpost.png)
 
 ### Variables
 
 | Variable | What value? | Required |
 |---|---|---|
-| `theme`  | `internet-weblog` | Only if you want to use this theme! 😃|
 | `title` | `internet weblog` | No. Unless you want to call your blog something else. |
 | `SectionPagesMenu` | `main` | Yes. See [above](#configuring-your-blog). |
-| `[author]` - `Handle` | A short handle to describe you. This could be your twitter handle or simply your first name. | Yes. This is used to generate the Site's Title. |
-| `[author]` - `FirstName` | Your first name | Yes. This is used in the footer to say Hi and in other places to identify you as the author. |
-| `[author]` - `LastName` | Your last name | Not really. It is used in some places to identify you as the author. |
-| `[author]` - `AboutPage` | `/about` or `http://about.othersite.com` | Only if you want an about page. This is exposed to allow you to link to an external about page as well. If you have a local page it can just be something relative. |
-| `[author]` - `Location` | `Your City` | No. If set, this is added to the Copyright in the footer so you can give some love to your hometown. |
-| `[author]` - `FlickrID` | `Your Flickr ID` | No. The footer shows your photo stream from flickr. If you don't set it, nothing will be displayed. |
+| `[params.author]` - `Handle` | A short handle to describe you. This could be your twitter handle or simply your first name. | Yes. This is used to generate the Site's Title. |
+| `[params.author]` - `FirstName` | Your first name | Yes. This is used in the footer to say Hi and in other places to identify you as the author. |
+| `[params.author]` - `LastName` | Your last name | Not really. It is used in some places to identify you as the author. |
+| `[params.author]` - `AboutPage` | `/about` or `http://about.othersite.com` | Only if you want an about page. This is exposed to allow you to link to an external about page as well. If you have a local page it can just be something relative. |
+| `[params.author]` - `Location` | `Your City` | No. If set, this is added to the Copyright in the footer so you can give some love to your hometown. |
+| `[params.author]` - `FlickrID` | `Your Flickr ID` | No. The footer shows your photo stream from flickr. If you don't set it, nothing will be displayed. |
 | `[params]` - `Description` | `Describe your site` | No. If set, this is added to your pages metadata. |
 | `[params]` - `ShowCopyright` | `true` or `false` | No. If true, Copyright text will be added to the footer. |
 | `[params]` - `RSSEnabled` | `true` or `false` | No. If true, RSS pages will be generated. |
-| `[params]` - `RSSSections` | `[ "Posts", "Microposts", "Photos" ]` | If you want RSS links in the menu, yes. These strings need to be the display name of the section where you want to have an RSS icon displayed. ![rss](https://github.com/jnjosh/internet-weblog/blob/master/images/rss.png) |
+| `[params]` - `RSSSections` | `[ "Posts", "Microposts", "Photos" ]` | If you want RSS links in the menu, yes. These strings need to be the display name of the section where you want to have an RSS icon displayed. ![rss](https://github.com/jnjosh/internet-weblog/blob/main/images/rss.png) |
 | `[params]` - `RSSMicropostTitles` | `true` or `false` | No. If false, Microposts RSS feeds will not have the title in included posts. If not present or true, nothing happens. |
 | `[params]` - `YearlyMicroposts` | `true` or `false` | No. If true, Microposts will have a page with a yearly grouping just like the posts.  If not present or false, the default of not having a micropost yearly grouping is applied. |
 | `[params]` - `SummarizeMicroposts` | `true` or `false` | No. If true, Microposts will be summarized in the main list just like posts with a continue reading link.  If not present or false, the default of not summarizing microposts is applied. |

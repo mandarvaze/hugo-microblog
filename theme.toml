@@ -1,12 +1,12 @@
-name = "Internet Weblog"
+name = "Hugo Microblog"
 license = "MIT"
-licenselink = "https://github.com/jnjosh/internet-weblog/blob/master/LICENSE.md"
+licenselink = "https://github.com/mandarvaze/hugo-microblog/blob/main/LICENSE.md"
 description = "A personal, minimal blog theme for Hugo."
-homepage = "https://jnjosh.com"
+homepage = "https://microblog.desipenguin.com/about/"
 tags = ["blog", "personal", "minimal", "microblog", "photoblog", "linkblog", "responsive"]
 features = ["Microblog", "Photoblog", "Blog", "Flickr Photo Stream", "Personal Blog", "Link Blog", "Responsive"]
 min_version = 0.14
 
 [author]
-  name = "Josh Johnson"
-  homepage = "https://jnjosh.com"
+  name = "Mandar Vaze"
+  homepage = "https://microblog.desipenguin.com/about/"
