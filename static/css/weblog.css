@@ -234,15 +234,17 @@ article code {
   display: inline;
 }
 
-@media (prefers-color-scheme: dark) article.post .content-body code,
-@media (prefers-color-scheme: dark) article.post .prose code,
-@media (prefers-color-scheme: dark) article.post code,
-@media (prefers-color-scheme: dark) .prose code,
-@media (prefers-color-scheme: dark) .content-body code,
-@media (prefers-color-scheme: dark) article code {
-  color: #bfdbfe !important;
-  background-color: #1e3a8a !important;
-  border-color: #3b82f6;
+@media (prefers-color-scheme: dark) {
+  article.post .content-body code,
+  article.post .prose code,
+  article.post code,
+  .prose code,
+  .content-body code,
+  article code {
+    color: #bfdbfe !important;
+    background-color: #1e3a8a !important;
+    border-color: #3b82f6;
+  }
 }
 
 /* Code blocks (pre) */
@@ -440,10 +442,12 @@ article h1 {
   text-align: left;
 }
 
-@media (prefers-color-scheme: dark) article.post header h1,
-@media (prefers-color-scheme: dark) .single article h1,
-@media (prefers-color-scheme: dark) article h1 {
-  color: #60a5fa !important;
+@media (prefers-color-scheme: dark) {
+  article.post header h1,
+  .single article h1,
+  article h1 {
+    color: #60a5fa !important;
+  }
 }
 
 /* Article Meta */
@@ -697,9 +701,11 @@ article h2 {
   color: #2563eb !important;
 }
 
-@media (prefers-color-scheme: dark) article.post h2,
-@media (prefers-color-scheme: dark) article h2 {
-  color: #60a5fa !important;
+@media (prefers-color-scheme: dark) {
+  article.post h2,
+  article h2 {
+    color: #60a5fa !important;
+  }
 }
 
 article.post h2 a,
@@ -708,10 +714,12 @@ article h2 a {
   color: inherit !important;
 }
 
-@media (prefers-color-scheme: dark) article.post h2 a,
-@media (prefers-color-scheme: dark) article.post h1,
-@media (prefers-color-scheme: dark) article h2 a {
-  color: inherit !important;
+@media (prefers-color-scheme: dark) {
+  article.post h2 a,
+  article.post h1,
+  article h2 a {
+    color: inherit !important;
+  }
 }
 
 article.post h2 a:hover,
@@ -719,9 +727,11 @@ article h2 a:hover {
   color: inherit !important;
 }
 
-@media (prefers-color-scheme: dark) article.post h2 a:hover,
-@media (prefers-color-scheme: dark) article h2 a:hover {
-  color: inherit !important;
+@media (prefers-color-scheme: dark) {
+  article.post h2 a:hover,
+  article h2 a:hover {
+    color: inherit !important;
+  }
 }
 
 article.post .postmeta {
