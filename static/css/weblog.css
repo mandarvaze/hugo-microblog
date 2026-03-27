@@ -204,8 +204,10 @@ nav ul > li a:hover {
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-@media (prefers-color-scheme: dark) .prose a {
-  text-decoration-color: rgba(var(--color-neutral-600), 1);
+@media (prefers-color-scheme: dark) {
+  .prose a {
+    text-decoration-color: rgba(var(--color-neutral-600), 1);
+  }
 }
 
 .prose a:hover {
