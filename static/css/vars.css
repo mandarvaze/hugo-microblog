@@ -105,7 +105,7 @@
     --color-text-muted: rgba(var(--color-neutral-400), 1);
     --color-link: rgba(var(--color-primary-400), 1);
     --color-link-hover: rgba(var(--color-primary-300), 1);
-    --color-accent: rgba(var(--color-neutral-900), 1);
+    --color-accent: rgba(var(--color-neutral-200), 1);
     --color-border: rgba(var(--color-neutral-200), 1);
     --color-border-hover: rgba(var(--color-neutral-300), 1);
     --item-bg: rgba(var(--color-neutral-100), 1);

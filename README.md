@@ -7,6 +7,10 @@ a traditional blog mixed with a microblog. It also offers the ability to do
 simple link posts that link to a remote page. This theme is forked from
 [internet-weblog](https://github.com/jnjosh/internet-weblog) theme for Hugo
 
+**In March 2026, I updated the look (mainly CSS, but some style changes as well) inspired
+by [blowfish](https://blowfish.page/). The functionality remains largely the same
+but it looks much prettier compared to the old look.**
+
 This README is modified as appropriate for this theme. But some part still
 points to the README of the original theme.
 
