@@ -12,15 +12,25 @@
     {{ if .Param "feature" }}<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.feature }}">{{ end }}
     <meta property="og:url" content="{{ .Page.Permalink }}">
     <meta property="og:description" content="{{ .Summary }}">
-    <meta property="og:site_name" content="@{{ .Site.Author.handle }}’s {{ .Site.Title }}">
+    <meta property="og:site_name" content="@{{ .Site.Author.handle }}'s {{ .Site.Title }}">
     <meta name="twitter:card" content="summary_large_image">
     {{ end }}
     {{ hugo.Generator }}
 
     {{ $.Scratch.Add "title" .Site.Title }}
-    <title>{{ with .Title }}{{ if ne . ($.Scratch.Get "title") }}{{ . }} &middot; {{ end }}{{ end }}@{{ .Site.Params.Author.handle }}’s {{ .Site.Title }}</title>
+    <title>{{ with .Title }}{{ if ne . ($.Scratch.Get "title") }}{{ . }} &middot; {{ end }}{{ end }}@{{ .Site.Params.Author.handle }}'s {{ .Site.Title }}</title>
 
-    <link rel="stylesheet" href="{{.Site.BaseURL}}css/weblog.css" media="screen" charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    </style>
+
+    <link rel="stylesheet" href="{{.Site.BaseURL}}css/weblog.css?v={{ now.Unix }}" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
     {{ partial "custom_stylesheets.html" . }}
 

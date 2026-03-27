@@ -2,10 +2,15 @@
 {{ partial "page_header.html" . }}
 
   <main class="content">
-    <article class="page">
-      <p>
+    <article class="post">
+      {{ if (not (isset .Params "externalurl")) }}
+        <h1><a rel="full-article" href="{{ .Permalink }}">{{ .Title }}</a></h1>
+      {{ else }}
+        <h1><a rel="remote-article" href="{{ .Params.externalurl }}">→ {{ .Title }}</a> <a href="{{ .Permalink }}">∞</a></h1>
+      {{ end }}
+      <div class="content-body prose">
         {{ .Content }}
-      </p>
+      </div>
     </article>
   </main>
 

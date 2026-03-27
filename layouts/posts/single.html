@@ -2,28 +2,27 @@
 {{ partial "page_header.html" . }}
 
   <main class="content">
-
     <article class="post">
-      {{ if (not (isset .Params "externalurl")) }}
-        <h2><a rel="full-article" href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      {{ else }}
-        <h2><a rel="remote-article" href="{{ .Params.externalurl }}">→ {{ .Title }}</a> <a href="{{ .Permalink }}">∞</a></h2>
-      {{ end }}
-
-      <div class="postmeta">Posted on <time datetime="{{ .Date }}" pubdate="">{{ .Date.Format "January 2, 2006" }}</time> in
-        <span class="categories">
-          {{ range $i, $v := .Params.tags}}
-            <a class="category" href="/tags/{{ $v | urlize }}">{{ $v }}</a>{{ if ne (len $.Params.tags) (add $i 1) }}, {{ end }}
+      <header>
+        {{ if (not (isset .Params "externalurl")) }}
+          <h1><a rel="full-article" href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        {{ else }}
+          <h1><a rel="remote-article" href="{{ .Params.externalurl }}">→ {{ .Title }}</a> <a href="{{ .Permalink }}">∞</a></h1>
+        {{ end }}
+        <div class="postmeta">Posted on <time datetime="{{ .Date }}">{{ .Date.Format "January 2, 2006" }}</time>
+          {{ with .Params.tags }}
+          <span class="categories">
+            {{ range $i, $v := . }}
+              <a class="category" href="/tags/{{ $v | urlize }}">{{ $v }}</a>{{ if ne (len $.Params.tags) (add $i 1) }}, {{ end }}
+            {{ end }}
+          </span>
           {{ end }}
-        </span>
-      </div>
-
-      <p>
+        </div>
+      </header>
+      <div class="content-body prose">
         {{ .Content }}
-      </p>
+      </div>
     </article>
-
-
   </main>
 
 {{ partial "page_footer.html" . }}

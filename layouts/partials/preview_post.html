@@ -5,7 +5,7 @@
     <h2><a rel="remote-article" href="{{ .Params.externalurl }}">→ {{ .Title }}</a> <a href="{{ .Permalink }}">∞</a></h2>
   {{ end }}
 
-  <div class="postmeta">Posted on <time datetime="{{ .Date }}" pubdate="">{{ .Date.Format "January 2, 2006" }}</time>
+  <div class="postmeta">Posted on <time datetime="{{ .Date }}">{{ .Date.Format "January 2, 2006" }}</time>
     {{ if (isset .Params "tags") }}
        in
       <span class="categories">
@@ -16,17 +16,17 @@
     {{ end }}
   </div>
 
-  <p>
+  <div class="content-body prose">
     {{ if (not (isset .Params "externalurl")) }}
       {{ .Summary | safeHTML }}
     {{ else }}
       {{ .Content }}
     {{ end }}
-  </p>
+  </div>
 
   {{ if .Truncated }}
     {{ if (not (isset .Params "externalurl")) }}
-      <a class="continue" rel="full-article" href="{{ .Permalink }}">Continue Reading »</a>
+      <a class="continue" rel="full-article" href="{{ .Permalink }}">Continue Reading &raquo;</a>
     {{ end }}
   {{ end }}
 </article>

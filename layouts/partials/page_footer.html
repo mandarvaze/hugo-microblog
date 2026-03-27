@@ -1,18 +1,17 @@
 <footer>
   <div class="footer_text">
+    <div>
+      <h3>Hi, <a href="{{ .Site.Params.Author.aboutpage }}">I'm {{ .Site.Params.Author.firstname }}</a></h3>
+      <p>
+        {{ partial "bio.html" . }}
+      </p>
+    </div>
+    {{ if isset .Site.Params.Author "flickrid" | and ( not ( eq .Site.Params.Author.flickrid "" ) ) }}
       <div>
-        <h3>Hi, <a href="{{ .Site.Params.Author.aboutpage }}">I'm {{ .Site.Params.Author.firstname }}</a></h3>
-        <p>
-          {{ partial "bio.html" . }}
-        </p>
+        <h3><a href="https://www.flickr.com/photos/{{ .Site.Params.Author.flickrid }}/">Photo Stream</a></h3>
+        <div id="photos"></div>
       </div>
-      {{ if isset .Site.Params.Author "flickrid" | and ( not ( eq .Site.Params.Author.flickrid "" ) ) }}
-      <div>
-          <h3><a href="https://www.flickr.com/photos/{{ .Site.Params.Author.flickrid }}/">Photo Stream</a></h3>
-          <div id="photos"></div>
-        </div>
-      </div>
-      {{ end }}
+    {{ end }}
   </div>
 
   {{ if .Site.Params.showcopyright }}
