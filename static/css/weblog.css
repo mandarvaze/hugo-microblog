@@ -75,6 +75,18 @@ h1:first-child, h2:first-child, h3:first-child {
   padding: 0 1rem;
 }
 
+.taxonomy-list {
+  columns: 5;
+  column-gap: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.taxonomy-list li {
+  break-inside: avoid;
+  padding: 0.25rem 0;
+}
+
 /* Header */
 header {
   padding: 1.5rem 0;

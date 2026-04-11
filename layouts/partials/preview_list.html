@@ -5,6 +5,15 @@
 {{ end }}
 {{ $paginator := .Paginate $pages }}
 
+{{ if eq .Kind "taxonomy" }}
+  <ul class="taxonomy-list">
+    {{ range .Data.Terms.Alphabetical }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+      </li>
+    {{ end }}
+  </ul>
+{{ else }}
 {{ range .Paginator.Pages }}
   {{ $url := replace .Permalink .Site.BaseURL "" }}
 
@@ -20,6 +29,7 @@
     {{ partial "preview_post.html" . }}
   {{ end }}
 
+{{ end }}
 {{ end }}
 
 {{ partial "pagination.html" . }}
