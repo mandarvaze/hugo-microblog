@@ -27,11 +27,9 @@ body {
   color: rgba(var(--color-neutral-900), 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background-color: rgba(var(--color-primary-900), 1);
-    color: rgba(var(--color-neutral-100), 1);
-  }
+@media (prefers-color-scheme: dark) ::selection {
+  background-color: rgba(var(--color-primary-900), 1);
+  color: rgba(var(--color-neutral-100), 1);
 }
 
 /* Links */
@@ -146,10 +144,8 @@ nav ul > li a:hover {
   background-color: rgba(var(--color-neutral-100), 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  nav ul > li a:hover {
-    background-color: rgba(var(--color-neutral-800), 1);
-  }
+@media (prefers-color-scheme: dark) nav ul > li a:hover {
+  background-color: rgba(var(--color-neutral-800), 1);
 }
 
 .rss-icon {
@@ -232,41 +228,44 @@ nav ul > li a:hover {
 }
 
 /* Inline Code - High contrast for readability */
-article.post .content-body code,
-article.post .prose code,
-article.post code,
-.prose code,
-.content-body code,
-article code {
+article.post .content-body :not(pre) > code,
+article.post .prose :not(pre) > code,
+article.post :not(pre) > code,
+.prose :not(pre) > code,
+.content-body :not(pre) > code,
+article :not(pre) > code {
   font-family: var(--font-mono);
   font-size: 0.875em;
   font-weight: 600;
   color: #1e40af !important;
   background-color: #dbeafe !important;
+  padding: 0.2em 0.5em;
   border-radius: 0.25rem;
-  border: none;
+  border: 1px solid #93c5fd;
   word-break: break-word;
   display: inline;
 }
 
 @media (prefers-color-scheme: dark) {
-  article.post .content-body code,
-  article.post .prose code,
-  article.post code,
-  .prose code,
-  .content-body code,
-  article code {
-    color: rgba(var(--color-neutral-700), 1);
-    background-color: rgba(var(--color-neutral-200), 1);
+  article.post .content-body :not(pre) > code,
+  article.post .prose :not(pre) > code,
+  article.post :not(pre) > code,
+  .prose :not(pre) > code,
+  .content-body :not(pre) > code,
+  article :not(pre) > code {
+    color: #bfdbfe !important;
+    background-color: #1e3a8a !important;
+    border-color: #3b82f6;
   }
 }
 
-/* Code blocks (pre) */
-.prose pre {
+/* Code blocks (pre) - override inline styles from syntax highlighters */
+.prose > pre,
+article pre {
   margin: 1.5em 0;
   padding: 1em;
-  background-color: rgba(var(--color-neutral-700), 1);
-  color: rgba(var(--color-neutral-200), 1);
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
   border-radius: 0.5rem;
   overflow-x: auto;
   line-height: 1.5;
@@ -274,27 +273,39 @@ article code {
   font-size: 0.875em;
 }
 
-.prose pre code {
-  padding: 0;
-  margin: 0;
-  color: inherit;
-  background: none;
-  border: none;
-  border-radius: 0;
-  font-size: inherit;
-}
-
 @media (prefers-color-scheme: dark) {
-  .prose pre {
-    background-color: rgba(var(--color-neutral-100), 1);
-    color: rgba(var(--color-neutral-500), 1);
+  .prose > pre,
+  article pre {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
   }
 }
 
+article pre code {
+  padding: 0;
+  margin: 0;
+  color: #f1f5f9 !important;
+  background: none !important;
+  border: none;
+  border-radius: 0;
+  display: block;
+}
+
+article pre code span,
+article pre code span span,
+article pre code span span span {
+  color: #f1f5f9 !important;
+  background-color: transparent !important;
+}
+
 @media (prefers-color-scheme: dark) {
-  .prose pre code {
-    color: rgba(var(--color-neutral-500), 1);
-    background: rgba(var(--color-neutral-100), 1);
+  .prose h3 {
+    color: #f1f5f9;
+  }
+
+  .prose strong {
+    color: #60a5fa;
+    font-weight: 700;
   }
 }
 
@@ -322,12 +333,6 @@ article code {
   font-weight: 600;
   margin-top: 1.6em;
   margin-bottom: 0.6em;
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose h3 {
-    color: rgba(var(--color-neutral-600), 1);
-  }
 }
 
 .prose h4 {
@@ -378,12 +383,10 @@ article code {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
-  .prose blockquote {
-    background-color: rgba(var(--color-neutral-800), 1);
-    color: rgba(var(--color-neutral-200), 1);
-    border-left-color: rgba(var(--color-primary-600), 1);
-  }
+@media (prefers-color-scheme: dark) .prose blockquote {
+  background-color: rgba(var(--color-neutral-800), 1);
+  color: rgba(var(--color-neutral-200), 1);
+  border-left-color: rgba(var(--color-primary-600), 1);
 }
 
 .prose blockquote p {
@@ -402,12 +405,6 @@ article code {
 .prose strong {
   font-weight: 600;
   color: var(--color-accent);
-}
-
-@media (prefers-color-scheme: dark) {
-  .prose strong {
-    color: rgba(var(--color-neutral-500), 1);
-  }
 }
 
 /* HR */
@@ -444,10 +441,8 @@ article code {
   font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  .prose th {
-    background-color: rgba(var(--color-neutral-800), 1);
-  }
+@media (prefers-color-scheme: dark) .prose th {
+  background-color: rgba(var(--color-neutral-800), 1);
 }
 
 /* ===========================
@@ -526,21 +521,17 @@ article.post .postmeta .category {
   transition: background-color 0.15s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  article.post .postmeta .category {
-    color: rgba(var(--color-primary-400), 1);
-    background-color: rgba(var(--color-primary-900), 1);
-  }
+@media (prefers-color-scheme: dark) article.post .postmeta .category {
+  color: rgba(var(--color-primary-400), 1);
+  background-color: rgba(var(--color-primary-900), 1);
 }
 
 article.post .postmeta .category:hover {
   background-color: rgba(var(--color-primary-100), 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  article.post .postmeta .category:hover {
-    background-color: rgba(var(--color-primary-800), 1);
-  }
+@media (prefers-color-scheme: dark) article.post .postmeta .category:hover {
+  background-color: rgba(var(--color-primary-800), 1);
 }
 
 /* Article Content - Direct children of article, not wrapped in p */
@@ -686,10 +677,8 @@ article.photo .title {
   font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  article.photo .title {
-    background-color: rgba(var(--color-primary-600), 1);
-  }
+@media (prefers-color-scheme: dark) article.photo .title {
+  background-color: rgba(var(--color-primary-600), 1);
 }
 
 article.photo a {
@@ -858,12 +847,10 @@ footer {
   border-top: 1px solid #475569;
 }
 
-@media (prefers-color-scheme: dark) {
-  footer {
-    background-color: #0f172a;
-    color: #e2e8f0;
-    border-top-color: #334155;
-  }
+@media (prefers-color-scheme: dark) footer {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border-top-color: #334155;
 }
 
 .footer_text {
@@ -976,18 +963,16 @@ footer {
   background: rgba(var(--color-neutral-500), 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: rgba(var(--color-neutral-50), 1);
-  }
+@media (prefers-color-scheme: dark) ::-webkit-scrollbar-track {
+  background: rgba(var(--color-neutral-50), 1);
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: rgba(var(--color-neutral-500), 1);
-  }
+@media (prefers-color-scheme: dark) ::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-neutral-500), 1);
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(var(--color-neutral-400), 1);
-  }
+@media (prefers-color-scheme: dark) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--color-neutral-400), 1);
 }
 
 /* ===========================
