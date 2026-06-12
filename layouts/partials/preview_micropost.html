@@ -18,17 +18,11 @@
     </div>
 
     <div class="content-body prose">
-      {{ if or (not (isset .Params "externalurl")) }}
-        {{ .Summary }}
-      {{ else }}
-        {{ .Content }}
-      {{ end }}
+      {{ .Summary }}
     </div>
 
     {{ if .Truncated }}
-      {{ if (not (isset .Params "externalurl")) }}
-        <a class="continue" rel="full-article" href="{{ .Permalink }}">Continue Reading &raquo;</a>
-      {{ end }}
+      <a class="continue" rel="full-article" href="{{ .Permalink }}">Continue Reading &raquo;</a>
     {{ end }}
   {{ else }}
     <div class="content-body prose">
