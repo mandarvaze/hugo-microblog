@@ -12,7 +12,7 @@
     {{ if .Param "feature" }}<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.feature }}">{{ end }}
     <meta property="og:url" content="{{ .Page.Permalink }}">
     <meta property="og:description" content="{{ .Summary }}">
-    <meta property="og:site_name" content="@{{ .Site.Author.handle }}'s {{ .Site.Title }}">
+    <meta property="og:site_name" content="@{{ .Site.Params.Author.handle }}'s {{ .Site.Title }}">
     <meta name="twitter:card" content="summary_large_image">
     {{ end }}
     {{ hugo.Generator }}
