@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="{{.Site.BaseURL}}css/weblog.css?v={{ now.Unix }}" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
     {{ partial "custom_stylesheets.html" . }}
+    {{ partial "webmention-discovery.html" . }}
+    {{ partial "webmention-scripts.html" . }}
 
     {{ if .Site.Params.rssenabled }}
 	<link href="{{with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />

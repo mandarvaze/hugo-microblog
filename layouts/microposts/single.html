@@ -4,6 +4,7 @@
   <main class="content">
    <article class="micropost">
      {{ .Content }}
+     {{ partial "webmentions-display.html" . }}
      <a href='{{ .Permalink }}'><aside class="dates">→ {{ .Date.Format "2006/01/02 3:04 PM" }}</aside></a>
    </article>
   </main>

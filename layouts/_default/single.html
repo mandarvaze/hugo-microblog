@@ -10,6 +10,7 @@
       {{ end }}
       <div class="content-body prose">
         {{ .Content }}
+        {{ partial "webmentions-display.html" . }}
       </div>
     </article>
   </main>

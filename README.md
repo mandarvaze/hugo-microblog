@@ -35,6 +35,7 @@ and see it's
         - [Defining Yourself as the Author](#defining-yourself-as-the-author)
         - [Customizing the Bio Section, 404 Page, Javascript, or Stylesheets](#customizing-the-bio-section-404-page-javascript-or-stylesheets)
         - [Creating a Link Post](#creating-a-link-post)
+        - [Webmention Support](#webmention-support)
     - [Variables](#variables)
     - [Overrides](#overrides)
 - [Contributing](#contributing)
@@ -171,6 +172,19 @@ externalurl = "http://kickstarter.com"
 These posts are rendered slightly different with an → to signify that it is remote.
 
 ![External URL](https://github.com/jnjosh/internet-weblog/raw/main/images/linkpost.png)
+
+#### Webmention Support
+
+You can enable Webmentions on your blog by adding your Webmention endpoint URL to your `config.toml`. 
+
+Add the following under the `[params]` section of your config file:
+
+```toml
+[params]
+   webmentionEndpoint = "https://webmention.io/yourdomain.com/webmention"
+```
+
+If `webmentionEndpoint` is not defined, Webmention features will be automatically disabled.
 
 ### Variables
 

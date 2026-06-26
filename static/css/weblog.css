@@ -1046,3 +1046,42 @@ img {
   margin-top: 2rem;
   padding-top: 1rem;
 }
+
+/* Webmentions */
+#webmentions {
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+}
+
+.webmention {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.webmention:last-child {
+  border-bottom: none;
+}
+
+.webmention__author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.webmention__author img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.webmention__content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
