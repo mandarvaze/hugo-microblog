@@ -3,6 +3,8 @@
 
   <main class="content">
    <article class="micropost">
+     <div class="bubbles-vote"></div>
+     <script src="https://bubbles.town/vote.js" defer></script>
      {{ .Content }}
      {{ partial "webmentions-display.html" . }}
      <a href='{{ .Permalink }}'><aside class="dates">→ {{ .Date.Format "2006/01/02 3:04 PM" }}</aside></a>
