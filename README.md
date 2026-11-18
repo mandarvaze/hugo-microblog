@@ -210,11 +210,15 @@ Here is an example `config.toml`:
 
 ```
 baseurl = "http://mysite.com/"
-languageCode = "en-us"
 title = "internet weblog"
 theme = "internet-weblog"
 Paginate = 10
 SectionPagesMenu = "main"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    locale = "en-US"
 
 [author]
    Handle = "jnjosh"
